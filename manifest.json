@@ -1,0 +1,9 @@
+{
+    "domain": "time_of_day",
+    "name": "Time of Day",
+    "codeowners": [],
+    "config_flow": true,
+    "documentation": "https://github.com/",
+    "iot_class": "calculated",
+    "version": "1.0.0"
+}

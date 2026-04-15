@@ -1,0 +1,54 @@
+{
+    "entity": {
+        "binary_sensor": {
+            "morning": {
+                "default": "mdi:weather-sunset-up",
+                "state": {
+                    "on": "mdi:weather-sunset-up",
+                    "off": "mdi:weather-sunset-up"
+                }
+            },
+            "afternoon": {
+                "default": "mdi:weather-sunny",
+                "state": {
+                    "on": "mdi:weather-sunny",
+                    "off": "mdi:weather-sunny"
+                }
+            },
+            "evening": {
+                "default": "mdi:weather-sunset-down",
+                "state": {
+                    "on": "mdi:weather-sunset-down",
+                    "off": "mdi:weather-sunset-down"
+                }
+            },
+            "night": {
+                "default": "mdi:weather-night",
+                "state": {
+                    "on": "mdi:weather-night",
+                    "off": "mdi:weather-night"
+                }
+            },
+            "preactivation_window": {
+                "default": "mdi:timer-alert-outline",
+                "state": {
+                    "on": "mdi:timer-alert",
+                    "off": "mdi:timer-alert-outline"
+                }
+            }
+        },
+        "button": {
+            "advance_period": {
+                "default": "mdi:skip-next"
+            }
+        },
+        "sensor": {
+            "active_period": {
+                "default": "mdi:clock-outline"
+            }
+        }
+    },
+    "services": {
+        "advance_period": "mdi:skip-next"
+    }
+}

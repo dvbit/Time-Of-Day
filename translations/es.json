@@ -1,0 +1,105 @@
+{
+    "config": {
+        "error": {
+            "times_not_chronological": "Los horarios de inicio deben estar en orden cronológico: Mañana < Tarde < Noche temprana < Noche. Compruebe tanto los días laborables como los no laborables."
+        },
+        "abort": {
+            "single_instance_allowed": "Ya está configurado. Solo se permite una única instancia."
+        },
+        "step": {
+            "user": {
+                "title": "Hora del día",
+                "description": "Configure los períodos de hora del día con reconocimiento de días laborables y soporte de preactivación.",
+                "data": {
+                    "workday_entity": "Sensor de día laborable",
+                    "morning_workday_time": "Inicio de mañana (día laborable)",
+                    "morning_non_workday_time": "Inicio de mañana (día no laborable)",
+                    "morning_preactivation_window": "Ventana de preactivación de mañana",
+                    "morning_preactivation_entity": "Entidad de preactivación de mañana",
+                    "afternoon_workday_time": "Inicio de tarde (día laborable)",
+                    "afternoon_non_workday_time": "Inicio de tarde (día no laborable)",
+                    "afternoon_preactivation_window": "Ventana de preactivación de tarde",
+                    "afternoon_preactivation_entity": "Entidad de preactivación de tarde",
+                    "evening_workday_time": "Inicio de noche temprana (día laborable)",
+                    "evening_non_workday_time": "Inicio de noche temprana (día no laborable)",
+                    "evening_preactivation_window": "Ventana de preactivación de noche temprana",
+                    "evening_preactivation_entity": "Entidad de preactivación de noche temprana",
+                    "night_workday_time": "Inicio de noche (día laborable)",
+                    "night_non_workday_time": "Inicio de noche (día no laborable)",
+                    "night_preactivation_window": "Ventana de preactivación de noche",
+                    "night_preactivation_entity": "Entidad de preactivación de noche"
+                },
+                "data_description": {
+                    "workday_entity": "Sensor binario que indica si hoy es un día laborable.",
+                    "morning_preactivation_window": "Minutos antes de la hora de inicio durante los cuales la entidad de preactivación puede activar la activación anticipada (0 para deshabilitar).",
+                    "morning_preactivation_entity": "Entidad booleana que activa la activación anticipada de la Mañana cuando se enciende durante la ventana de preactivación.",
+                    "afternoon_preactivation_window": "Minutos antes de la hora de inicio durante los cuales la entidad de preactivación puede activar la activación anticipada (0 para deshabilitar).",
+                    "afternoon_preactivation_entity": "Entidad booleana que activa la activación anticipada de la Tarde cuando se enciende durante la ventana de preactivación.",
+                    "evening_preactivation_window": "Minutos antes de la hora de inicio durante los cuales la entidad de preactivación puede activar la activación anticipada (0 para deshabilitar).",
+                    "evening_preactivation_entity": "Entidad booleana que activa la activación anticipada de la Noche temprana cuando se enciende durante la ventana de preactivación.",
+                    "night_preactivation_window": "Minutos antes de la hora de inicio durante los cuales la entidad de preactivación puede activar la activación anticipada (0 para deshabilitar).",
+                    "night_preactivation_entity": "Entidad booleana que activa la activación anticipada de la Noche cuando se enciende durante la ventana de preactivación."
+                }
+            }
+        }
+    },
+    "entity": {
+        "binary_sensor": {
+            "morning": {"name": "Mañana"},
+            "afternoon": {"name": "Tarde"},
+            "evening": {"name": "Noche temprana"},
+            "night": {"name": "Noche"},
+            "preactivation_window": {"name": "Ventana de preactivación"}
+        },
+        "sensor": {
+            "active_period": {"name": "Período activo"}
+        },
+        "button": {
+            "advance_period": {"name": "Avanzar período"}
+        }
+    },
+    "services": {
+        "advance_period": {
+            "name": "Avanzar período",
+            "description": "Avanzar inmediatamente al siguiente período de hora del día. El período forzado permanece activo hasta que llega su hora de inicio natural."
+        }
+    },
+    "options": {
+        "step": {
+            "init": {
+                "title": "Opciones de hora del día",
+                "description": "Reconfigurar los períodos de hora del día.",
+                "data": {
+                    "workday_entity": "Sensor de día laborable",
+                    "morning_workday_time": "Inicio de mañana (día laborable)",
+                    "morning_non_workday_time": "Inicio de mañana (día no laborable)",
+                    "morning_preactivation_window": "Ventana de preactivación de mañana",
+                    "morning_preactivation_entity": "Entidad de preactivación de mañana",
+                    "afternoon_workday_time": "Inicio de tarde (día laborable)",
+                    "afternoon_non_workday_time": "Inicio de tarde (día no laborable)",
+                    "afternoon_preactivation_window": "Ventana de preactivación de tarde",
+                    "afternoon_preactivation_entity": "Entidad de preactivación de tarde",
+                    "evening_workday_time": "Inicio de noche temprana (día laborable)",
+                    "evening_non_workday_time": "Inicio de noche temprana (día no laborable)",
+                    "evening_preactivation_window": "Ventana de preactivación de noche temprana",
+                    "evening_preactivation_entity": "Entidad de preactivación de noche temprana",
+                    "night_workday_time": "Inicio de noche (día laborable)",
+                    "night_non_workday_time": "Inicio de noche (día no laborable)",
+                    "night_preactivation_window": "Ventana de preactivación de noche",
+                    "night_preactivation_entity": "Entidad de preactivación de noche"
+                },
+                "data_description": {
+                    "workday_entity": "Sensor binario que indica si hoy es un día laborable.",
+                    "morning_preactivation_window": "Minutos antes de la hora de inicio durante los cuales la entidad de preactivación puede activar la activación anticipada (0 para deshabilitar).",
+                    "morning_preactivation_entity": "Entidad booleana que activa la activación anticipada de la Mañana cuando se enciende durante la ventana de preactivación.",
+                    "afternoon_preactivation_window": "Minutos antes de la hora de inicio durante los cuales la entidad de preactivación puede activar la activación anticipada (0 para deshabilitar).",
+                    "afternoon_preactivation_entity": "Entidad booleana que activa la activación anticipada de la Tarde cuando se enciende durante la ventana de preactivación.",
+                    "evening_preactivation_window": "Minutos antes de la hora de inicio durante los cuales la entidad de preactivación puede activar la activación anticipada (0 para deshabilitar).",
+                    "evening_preactivation_entity": "Entidad booleana que activa la activación anticipada de la Noche temprana cuando se enciende durante la ventana de preactivación.",
+                    "night_preactivation_window": "Minutos antes de la hora de inicio durante los cuales la entidad de preactivación puede activar la activación anticipada (0 para deshabilitar).",
+                    "night_preactivation_entity": "Entidad booleana que activa la activación anticipada de la Noche cuando se enciende durante la ventana de preactivación."
+                }
+            }
+        }
+    }
+}

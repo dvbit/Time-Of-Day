@@ -1,0 +1,3 @@
+advance_period:
+  name: Advance Period
+  description: Advance to the next time-of-day period immediately. The forced period stays active until its natural start time passes.

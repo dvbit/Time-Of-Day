@@ -1,0 +1,105 @@
+{
+    "config": {
+        "error": {
+            "times_not_chronological": "Start times must be in chronological order: Morning < Afternoon < Evening < Night. Check both workday and non-workday times."
+        },
+        "abort": {
+            "single_instance_allowed": "Already configured. Only a single instance is allowed."
+        },
+        "step": {
+            "user": {
+                "title": "Time of Day",
+                "description": "Configure time-of-day periods with workday awareness and pre-activation support.",
+                "data": {
+                    "workday_entity": "Workday sensor",
+                    "morning_workday_time": "Morning start (workday)",
+                    "morning_non_workday_time": "Morning start (non-workday)",
+                    "morning_preactivation_window": "Morning pre-activation window",
+                    "morning_preactivation_entity": "Morning pre-activation entity",
+                    "afternoon_workday_time": "Afternoon start (workday)",
+                    "afternoon_non_workday_time": "Afternoon start (non-workday)",
+                    "afternoon_preactivation_window": "Afternoon pre-activation window",
+                    "afternoon_preactivation_entity": "Afternoon pre-activation entity",
+                    "evening_workday_time": "Evening start (workday)",
+                    "evening_non_workday_time": "Evening start (non-workday)",
+                    "evening_preactivation_window": "Evening pre-activation window",
+                    "evening_preactivation_entity": "Evening pre-activation entity",
+                    "night_workday_time": "Night start (workday)",
+                    "night_non_workday_time": "Night start (non-workday)",
+                    "night_preactivation_window": "Night pre-activation window",
+                    "night_preactivation_entity": "Night pre-activation entity"
+                },
+                "data_description": {
+                    "workday_entity": "Binary sensor that indicates whether today is a workday.",
+                    "morning_preactivation_window": "Minutes before the start time during which the pre-activation entity can trigger early activation (0 to disable).",
+                    "morning_preactivation_entity": "Boolean entity that triggers early activation of Morning when it turns on during the pre-activation window.",
+                    "afternoon_preactivation_window": "Minutes before the start time during which the pre-activation entity can trigger early activation (0 to disable).",
+                    "afternoon_preactivation_entity": "Boolean entity that triggers early activation of Afternoon when it turns on during the pre-activation window.",
+                    "evening_preactivation_window": "Minutes before the start time during which the pre-activation entity can trigger early activation (0 to disable).",
+                    "evening_preactivation_entity": "Boolean entity that triggers early activation of Evening when it turns on during the pre-activation window.",
+                    "night_preactivation_window": "Minutes before the start time during which the pre-activation entity can trigger early activation (0 to disable).",
+                    "night_preactivation_entity": "Boolean entity that triggers early activation of Night when it turns on during the pre-activation window."
+                }
+            }
+        }
+    },
+    "entity": {
+        "binary_sensor": {
+            "morning": {"name": "Morning"},
+            "afternoon": {"name": "Afternoon"},
+            "evening": {"name": "Evening"},
+            "night": {"name": "Night"},
+            "preactivation_window": {"name": "Pre-activation Window"}
+        },
+        "sensor": {
+            "active_period": {"name": "Active Period"}
+        },
+        "button": {
+            "advance_period": {"name": "Advance Period"}
+        }
+    },
+    "services": {
+        "advance_period": {
+            "name": "Advance Period",
+            "description": "Advance to the next time-of-day period immediately."
+        }
+    },
+    "options": {
+        "step": {
+            "init": {
+                "title": "Time of Day Options",
+                "description": "Reconfigure time-of-day periods.",
+                "data": {
+                    "workday_entity": "Workday sensor",
+                    "morning_workday_time": "Morning start (workday)",
+                    "morning_non_workday_time": "Morning start (non-workday)",
+                    "morning_preactivation_window": "Morning pre-activation window",
+                    "morning_preactivation_entity": "Morning pre-activation entity",
+                    "afternoon_workday_time": "Afternoon start (workday)",
+                    "afternoon_non_workday_time": "Afternoon start (non-workday)",
+                    "afternoon_preactivation_window": "Afternoon pre-activation window",
+                    "afternoon_preactivation_entity": "Afternoon pre-activation entity",
+                    "evening_workday_time": "Evening start (workday)",
+                    "evening_non_workday_time": "Evening start (non-workday)",
+                    "evening_preactivation_window": "Evening pre-activation window",
+                    "evening_preactivation_entity": "Evening pre-activation entity",
+                    "night_workday_time": "Night start (workday)",
+                    "night_non_workday_time": "Night start (non-workday)",
+                    "night_preactivation_window": "Night pre-activation window",
+                    "night_preactivation_entity": "Night pre-activation entity"
+                },
+                "data_description": {
+                    "workday_entity": "Binary sensor that indicates whether today is a workday.",
+                    "morning_preactivation_window": "Minutes before the start time during which the pre-activation entity can trigger early activation (0 to disable).",
+                    "morning_preactivation_entity": "Boolean entity that triggers early activation of Morning when it turns on during the pre-activation window.",
+                    "afternoon_preactivation_window": "Minutes before the start time during which the pre-activation entity can trigger early activation (0 to disable).",
+                    "afternoon_preactivation_entity": "Boolean entity that triggers early activation of Afternoon when it turns on during the pre-activation window.",
+                    "evening_preactivation_window": "Minutes before the start time during which the pre-activation entity can trigger early activation (0 to disable).",
+                    "evening_preactivation_entity": "Boolean entity that triggers early activation of Evening when it turns on during the pre-activation window.",
+                    "night_preactivation_window": "Minutes before the start time during which the pre-activation entity can trigger early activation (0 to disable).",
+                    "night_preactivation_entity": "Boolean entity that triggers early activation of Night when it turns on during the pre-activation window."
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,105 @@
+{
+    "config": {
+        "error": {
+            "times_not_chronological": "Die Startzeiten müssen in chronologischer Reihenfolge sein: Morgen < Nachmittag < Abend < Nacht. Bitte überprüfen Sie sowohl die Arbeitstag- als auch die Nicht-Arbeitstag-Zeiten."
+        },
+        "abort": {
+            "single_instance_allowed": "Bereits konfiguriert. Es ist nur eine einzige Instanz erlaubt."
+        },
+        "step": {
+            "user": {
+                "title": "Tageszeit",
+                "description": "Tageszeit-Perioden mit Arbeitstag-Erkennung und Voraktivierungsunterstützung konfigurieren.",
+                "data": {
+                    "workday_entity": "Arbeitstag-Sensor",
+                    "morning_workday_time": "Morgen-Beginn (Arbeitstag)",
+                    "morning_non_workday_time": "Morgen-Beginn (kein Arbeitstag)",
+                    "morning_preactivation_window": "Voraktivierungsfenster Morgen",
+                    "morning_preactivation_entity": "Voraktivierungseinheit Morgen",
+                    "afternoon_workday_time": "Nachmittag-Beginn (Arbeitstag)",
+                    "afternoon_non_workday_time": "Nachmittag-Beginn (kein Arbeitstag)",
+                    "afternoon_preactivation_window": "Voraktivierungsfenster Nachmittag",
+                    "afternoon_preactivation_entity": "Voraktivierungseinheit Nachmittag",
+                    "evening_workday_time": "Abend-Beginn (Arbeitstag)",
+                    "evening_non_workday_time": "Abend-Beginn (kein Arbeitstag)",
+                    "evening_preactivation_window": "Voraktivierungsfenster Abend",
+                    "evening_preactivation_entity": "Voraktivierungseinheit Abend",
+                    "night_workday_time": "Nacht-Beginn (Arbeitstag)",
+                    "night_non_workday_time": "Nacht-Beginn (kein Arbeitstag)",
+                    "night_preactivation_window": "Voraktivierungsfenster Nacht",
+                    "night_preactivation_entity": "Voraktivierungseinheit Nacht"
+                },
+                "data_description": {
+                    "workday_entity": "Binärsensor, der anzeigt, ob heute ein Arbeitstag ist.",
+                    "morning_preactivation_window": "Minuten vor der Startzeit, in denen die Voraktivierungseinheit eine Frühaktivierung auslösen kann (0 zum Deaktivieren).",
+                    "morning_preactivation_entity": "Boolesche Einheit, die die Frühaktivierung des Morgens auslöst, wenn sie während des Voraktivierungsfensters eingeschaltet wird.",
+                    "afternoon_preactivation_window": "Minuten vor der Startzeit, in denen die Voraktivierungseinheit eine Frühaktivierung auslösen kann (0 zum Deaktivieren).",
+                    "afternoon_preactivation_entity": "Boolesche Einheit, die die Frühaktivierung des Nachmittags auslöst, wenn sie während des Voraktivierungsfensters eingeschaltet wird.",
+                    "evening_preactivation_window": "Minuten vor der Startzeit, in denen die Voraktivierungseinheit eine Frühaktivierung auslösen kann (0 zum Deaktivieren).",
+                    "evening_preactivation_entity": "Boolesche Einheit, die die Frühaktivierung des Abends auslöst, wenn sie während des Voraktivierungsfensters eingeschaltet wird.",
+                    "night_preactivation_window": "Minuten vor der Startzeit, in denen die Voraktivierungseinheit eine Frühaktivierung auslösen kann (0 zum Deaktivieren).",
+                    "night_preactivation_entity": "Boolesche Einheit, die die Frühaktivierung der Nacht auslöst, wenn sie während des Voraktivierungsfensters eingeschaltet wird."
+                }
+            }
+        }
+    },
+    "entity": {
+        "binary_sensor": {
+            "morning": {"name": "Morgen"},
+            "afternoon": {"name": "Nachmittag"},
+            "evening": {"name": "Abend"},
+            "night": {"name": "Nacht"},
+            "preactivation_window": {"name": "Voraktivierungsfenster"}
+        },
+        "sensor": {
+            "active_period": {"name": "Aktuelle Periode"}
+        },
+        "button": {
+            "advance_period": {"name": "Periode voranstellen"}
+        }
+    },
+    "services": {
+        "advance_period": {
+            "name": "Periode voranstellen",
+            "description": "Sofort zur nächsten Tageszeit-Periode wechseln. Die erzwungene Periode bleibt aktiv, bis ihre natürliche Startzeit erreicht ist."
+        }
+    },
+    "options": {
+        "step": {
+            "init": {
+                "title": "Tageszeit-Optionen",
+                "description": "Tageszeit-Perioden neu konfigurieren.",
+                "data": {
+                    "workday_entity": "Arbeitstag-Sensor",
+                    "morning_workday_time": "Morgen-Beginn (Arbeitstag)",
+                    "morning_non_workday_time": "Morgen-Beginn (kein Arbeitstag)",
+                    "morning_preactivation_window": "Voraktivierungsfenster Morgen",
+                    "morning_preactivation_entity": "Voraktivierungseinheit Morgen",
+                    "afternoon_workday_time": "Nachmittag-Beginn (Arbeitstag)",
+                    "afternoon_non_workday_time": "Nachmittag-Beginn (kein Arbeitstag)",
+                    "afternoon_preactivation_window": "Voraktivierungsfenster Nachmittag",
+                    "afternoon_preactivation_entity": "Voraktivierungseinheit Nachmittag",
+                    "evening_workday_time": "Abend-Beginn (Arbeitstag)",
+                    "evening_non_workday_time": "Abend-Beginn (kein Arbeitstag)",
+                    "evening_preactivation_window": "Voraktivierungsfenster Abend",
+                    "evening_preactivation_entity": "Voraktivierungseinheit Abend",
+                    "night_workday_time": "Nacht-Beginn (Arbeitstag)",
+                    "night_non_workday_time": "Nacht-Beginn (kein Arbeitstag)",
+                    "night_preactivation_window": "Voraktivierungsfenster Nacht",
+                    "night_preactivation_entity": "Voraktivierungseinheit Nacht"
+                },
+                "data_description": {
+                    "workday_entity": "Binärsensor, der anzeigt, ob heute ein Arbeitstag ist.",
+                    "morning_preactivation_window": "Minuten vor der Startzeit, in denen die Voraktivierungseinheit eine Frühaktivierung auslösen kann (0 zum Deaktivieren).",
+                    "morning_preactivation_entity": "Boolesche Einheit, die die Frühaktivierung des Morgens auslöst, wenn sie während des Voraktivierungsfensters eingeschaltet wird.",
+                    "afternoon_preactivation_window": "Minuten vor der Startzeit, in denen die Voraktivierungseinheit eine Frühaktivierung auslösen kann (0 zum Deaktivieren).",
+                    "afternoon_preactivation_entity": "Boolesche Einheit, die die Frühaktivierung des Nachmittags auslöst, wenn sie während des Voraktivierungsfensters eingeschaltet wird.",
+                    "evening_preactivation_window": "Minuten vor der Startzeit, in denen die Voraktivierungseinheit eine Frühaktivierung auslösen kann (0 zum Deaktivieren).",
+                    "evening_preactivation_entity": "Boolesche Einheit, die die Frühaktivierung des Abends auslöst, wenn sie während des Voraktivierungsfensters eingeschaltet wird.",
+                    "night_preactivation_window": "Minuten vor der Startzeit, in denen die Voraktivierungseinheit eine Frühaktivierung auslösen kann (0 zum Deaktivieren).",
+                    "night_preactivation_entity": "Boolesche Einheit, die die Frühaktivierung der Nacht auslöst, wenn sie während des Voraktivierungsfensters eingeschaltet wird."
+                }
+            }
+        }
+    }
+}
