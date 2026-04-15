@@ -11,7 +11,6 @@ Key features:
 - A **button** and a **service** to manually skip to the next period
 
 
-THere's a clean README description you can copy directly:
 
 Time of Day – Functional Description
 This package divides each day into four consecutive periods: Morning, Afternoon, Evening, and Night. Only one period is active at any given time, tracked by a dedicated binary sensor for each period and summarised in a single text sensor (sensor.time_of_day) that exposes the name of the currently active period.
