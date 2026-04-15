@@ -1,5 +1,6 @@
 # Time of Day
 
+
 A Home Assistant custom integration that divides the day into four named periods — **Morning**, **Afternoon**, **Evening**, and **Night** — and exposes them as entities you can use in automations and dashboards.
 
 Key features:
@@ -8,6 +9,26 @@ Key features:
 - **Pre-activation**: a period can be triggered early when a designated entity turns ON within a configurable time window before the scheduled start
 - **Latch behaviour**: once a period is pre-activated or force-advanced it stays active until its natural start time passes, even if the trigger entity turns back OFF
 - A **button** and a **service** to manually skip to the next period
+
+
+There are 4 Times of the Day:
+Morning
+Afternoon
+Evening
+Night
+
+there is a distinction between workday and non workingday. conditions described below and times mentionned including time windows must be differentiated per working and non working day
+
+there is a binary sensor true if that period is active.
+Only one period can be active at any given Time
+A period of the day starts at latest at a given time. Time can be different for woring and non working day.
+each period ot the day as a "pre activation" time window. the preactivation time window can be at most the interval of time between the previous time of day start time and current one. at a minimum it can be 0
+each time of day is associated with a boolean entity , preactivation condition, defined elsewhere in homeassistant. if the preactivation condition becomes true during the preactivation window the related time period becomes active.
+
+Example: Morning is set to start at 8:30 with a preactivation og 1 hour. the preactivation boolean is set to true in homeasssitant if one of the event connected to the morning routine is happening: coffe machine or toaster activated between 7 and 9 am or home alarm unarmed.
+This way latest at 8:30 the moring period is activated. but if any of the morning facts happens it is morning.
+Also create a sensor containing the active time of the day.
+use appropriate icons
 
 ---
 
