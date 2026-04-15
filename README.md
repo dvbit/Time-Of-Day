@@ -12,20 +12,29 @@ Key features:
 
 
 
-Time of Day – Functional Description
-This package divides each day into four consecutive periods: Morning, Afternoon, Evening, and Night. Only one period is active at any given time, tracked by a dedicated binary sensor for each period and summarised in a single text sensor (sensor.time_of_day) that exposes the name of the currently active period.
-Working day vs non-working day
+## Time of Day – Functional Description
+
+This package divides each day into four consecutive periods: **Morning**, **Afternoon**, **Evening**, and **Night**. Only one period is active at any given time, tracked by a dedicated binary sensor for each period and summarised in a single text sensor (`sensor.time_of_day`) that exposes the name of the currently active period.
+
+### Working day vs non-working day
+
 All time thresholds are defined separately for working days and non-working days, allowing schedules to shift on weekends and holidays. The distinction between the two day types is determined by an external boolean input (e.g. a Home Assistant workday sensor or a custom helper).
-How a period becomes active
+
+### How a period becomes active
+
 Each period has two activation mechanisms, and whichever fires first wins:
 
-Preactivation – Each period defines a boolean condition (configured externally in Home Assistant) that represents real-world signals associated with that time of day — for example, the coffee machine switching on, the alarm being disarmed, or the first light being turned on. If that condition becomes true during the period's preactivation window (a configurable time interval ending at the period's latest-start time), the period activates immediately.
-Latest-start time – If the preactivation condition never triggers, the period activates automatically at its configured latest-start time. This is a hard deadline that guarantees a transition regardless of activity signals.
+1. **Preactivation** – Each period defines a boolean condition (configured externally in Home Assistant) that represents real-world signals associated with that time of day — for example, the coffee machine switching on, the alarm being disarmed, or the first light being turned on. If that condition becomes true during the period's *preactivation window* (a configurable time interval ending at the period's latest-start time), the period activates immediately.
 
-Preactivation window
+2. **Latest-start time** – If the preactivation condition never triggers, the period activates automatically at its configured latest-start time. This is a hard deadline that guarantees a transition regardless of activity signals.
+
+### Preactivation window
+
 The preactivation window opens at most as far back as the previous period's latest-start time, and can be narrowed down to zero (disabling early activation entirely for that period). This prevents a signal that is ambiguous — one that could belong to either period — from triggering the wrong transition.
-Example
-Morning is configured with a latest-start of 08:30 and a preactivation window of 60 minutes (opening at 07:30). The preactivation condition is true if the coffee machine or toaster activates, or the alarm panel is disarmed. If any of those events occur between 07:30 and 08:30, Morning activates immediately. If none occur, Morning activates at 08:30 regardless.
+
+### Example
+
+Morning is configured with a latest-start of **08:30** and a preactivation window of **60 minutes** (opening at 07:30). The preactivation condition is true if the coffee machine or toaster activates, or the alarm panel is disarmed. If any of those events occur between 07:30 and 08:30, Morning activates immediately.
 
 ---
 
